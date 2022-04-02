@@ -11,4 +11,32 @@
     </select>
 
 
+    <select id="getAllDeps" resultType="org.javaboy.meeting.model.Department">
+        select *
+        from department
+    </select>
+
+    <insert id="adddepartment" parameterType="java.lang.String">
+        insert into department (departmentname)
+        values (#{departmentname});
+    </insert>
+
+    <select id="getDepByName" resultType="org.javaboy.meeting.model.Department">
+        select *
+        from department
+        where departmentname = #{departmentname};
+    </select>
+    <delete id="deletedep">
+        delete
+        from department
+        where departmentid = #{departmentid}
+    </delete>
+
+    <update id="updatedep">
+        update department
+        set departmentname = #{name}
+        where departmentid = #{id};
+    </update>
+
+
 </mapper>
